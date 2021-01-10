@@ -1,0 +1,13 @@
+[package]
+name = "tg-ks-bot"
+version = "0.1.0"
+authors = ["ChenKS12138 <749923710@qq.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+telegram-bot = "0.8.0"
+futures = "0.3.9"
+tokio = { version = "0.2.24", features = ["macros", "tcp"] }
+regex = "1.4.3"
