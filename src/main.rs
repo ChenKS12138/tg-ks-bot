@@ -8,7 +8,8 @@ const COMMAND_GITHUB: &str = "/github";
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let ks_gif = types::FileRef::from("https://ftp.bmp.ovh/imgs/2021/01/042b0e956fc7f079.gif");
+    let ks_gif =
+        types::FileRef::from("https://github.com/ChenKS12138/tg-ks-bot/raw/master/images/ks.gif");
     let token = env::var("TELEGRAM_BOT_TOKEN").expect("TELEGRAM_BOT_TOKEN not set");
     let api = Api::new(token);
     let reg = regex::Regex::new(r"@.*+").expect("Invalid regex");
@@ -23,7 +24,7 @@ async fn main() -> Result<(), Error> {
                     let command = reg.replace_all(&command, "").to_owned().to_string();
                     match command.as_str() {
                         COMMAND_KS => {
-                            api.send(types::requests::SendPhoto::new(&message.chat, &ks_gif))
+                            api.send(types::requests::SendVideo::new(&message.chat, &ks_gif))
                                 .await?;
                         }
                         COMMAND_GITHUB => {
